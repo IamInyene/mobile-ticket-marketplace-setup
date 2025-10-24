@@ -1,18 +1,27 @@
-
-import { Home, Plus, Search, Ticket, User } from 'lucide-react';
+import { Home, Plus, Search, Ticket, User, LogIn } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Navigation = () => {
   const location = useLocation();
+  const { user } = useAuth();
 
-  const navItems = [
+  const authNavItems = [
     { path: '/', icon: Home, label: 'Home' },
     { path: '/browse', icon: Search, label: 'Browse' },
     { path: '/sell', icon: Plus, label: 'Sell' },
     { path: '/my-tickets', icon: Ticket, label: 'My Tickets' },
     { path: '/profile', icon: User, label: 'Profile' },
   ];
+
+  const guestNavItems = [
+    { path: '/', icon: Home, label: 'Home' },
+    { path: '/browse', icon: Search, label: 'Browse' },
+    { path: '/auth/login', icon: LogIn, label: 'Sign In' },
+  ];
+
+  const navItems = user ? authNavItems : guestNavItems;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50">

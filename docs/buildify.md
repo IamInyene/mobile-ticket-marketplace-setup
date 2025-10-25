@@ -54,6 +54,12 @@
    - ✅ Add indexes for performance
 
 **Phase 2: Core Ticket Management (Priority: High)**
+2.5. Create deployable sample with basic UI (300 LOC)
+   - Design system and core components
+   - Basic routing and navigation
+   - Event browsing interface
+   - Responsive mobile-first design
+
 3. Implement ticket upload functionality (400 LOC)
    - Image upload to Supabase Storage
    - Form validation and error handling
